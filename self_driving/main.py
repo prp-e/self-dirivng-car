@@ -27,15 +27,15 @@ while True:
     if prediction[0, 0] > .7 and prediction[0, 1] < .3 and prediction[0, 2] < .3:
         requests.get(base_url + "/forward")
         cv2.putText(frame, f'Forward : {prediction[0, 0]}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (50, 255, 0), 2)
-        time.sleep(5)
+        time.sleep(2)
     elif prediction[0, 1] > .7 and prediction[0, 0] < .3 and prediction[0, 2] < .3:
         requests.get(base_url + "/back")
         cv2.putText(frame, f'Back : {prediction[0, 0]}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (50, 255, 0), 2)
-        time.sleep(5)
+        time.sleep(2)
     elif prediction[0, 2] > .7 and prediction[0, 0] < .3 and prediction[0, 1] < .3:
         requests.get(base_url + "/left")
         cv2.putText(frame, f'Left : {prediction[0, 0]}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (50, 255, 0), 2)
-        time.sleep(5)
+        time.sleep(2)
 
     cv2.imshow('img',frame)
     if cv2.waitKey(1) & 0xFF == ord('q') :
