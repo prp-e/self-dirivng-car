@@ -5,8 +5,7 @@ cam = cv2.VideoCapture("http://192.168.216.128:4747/video")
 
 while cam.isOpened():
     ret, frame = cam.read()
-    if ret:
-        cv2.imshow("frame", frame)
+        
     
     if cv2.waitKey(1) & 0xFF == ord('f'):
         cv2.imwrite('forward-' + str(uuid4()) + ".jpg", frame)
@@ -22,8 +21,8 @@ while cam.isOpened():
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-    else:
-        break
     
+    cv2.imshow("frame", frame)
+
 cv2.destroyAllWindows()
 cam.release()
