@@ -2,6 +2,7 @@ import cv2
 from keras.models import load_model 
 import numpy as np 
 import requests
+import time
 
 np.set_printoptions(suppress=True)
 
@@ -10,6 +11,8 @@ data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 cam = cv2.VideoCapture('http://192.168.216.128:4747/video')
 base_url = "http://192.168.216.179"
+
+time.sleep(5)
 
 while True:
     _, frame= cam.read()
